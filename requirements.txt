@@ -1,25 +1,15 @@
-# Core dependencies (both tasks)
-# Note: the Task 1 UI (gui.py) uses tkinter, which ships with standard
-# Python and needs no pip install. On Linux, if `import tkinter` fails,
-# install it via your package manager, e.g. `sudo apt install python3-tk`.
+# crawler_basic.py dependencies
 beautifulsoup4>=4.12
-scikit-learn>=1.3
-numpy>=1.24
-matplotlib>=3.7
-joblib>=1.3
-
-# Optional, recommended: gives higher-quality tokenisation/stemming than
-# the built-in fallback in shared/textprep.py. Fully optional — the
-# project runs and produces correct results without it (see
-# shared/textprep.py's "graceful degradation" docstring). If installed,
-# run once:  python -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab'); nltk.download('stopwords')"
+requests>=2.31
 nltk>=3.8
+pymongo>=4.6
 
-# Needed because PurePortal serves a Cloudflare "managed challenge" page
-# to plain requests (separate from robots.txt, which does permit
-# crawling — see robots.py's module docstring). undetected-chromedriver
-# is a Selenium wrapper that patches the automation fingerprints
-# Cloudflare checks for; plain selenium alone usually can't get past it.
-# Needs Chrome installed locally. Without this installed, robots.py logs
-# a message and skips the blocked page instead of crashing.
+# Needed because PurePortal serves a Cloudflare "managed challenge" page to
+# plain requests/headless Selenium (robots.txt itself permits crawling).
+# undetected-chromedriver patches the automation fingerprints Cloudflare
+# checks for. Needs Chrome installed locally, and run headed (not headless) --
+# see setup_driver() / wait_for_cloudflare() in crawler_basic.py.
+selenium>=4.15
 undetected-chromedriver>=3.5
+
+# One-time setup: python -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab'); nltk.download('stopwords')"
