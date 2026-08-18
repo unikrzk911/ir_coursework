@@ -104,8 +104,8 @@ print("Connected:", db.name, "| collections:", db.list_collection_names())
 # --- 3. Crawler ---
 SEED_URL = "https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/publications/"
 ALLOWED_DOMAIN = "pureportal.coventry.ac.uk"
-CRAWL_DELAY_SECONDS = 2
-MAX_PAGES = 100
+CRAWL_DELAY_SECONDS = 1
+MAX_PAGES = 200
 USER_AGENT = "SoftwaricaVerticalSearchBot/1.0 (+educational IR project)"
 
 
@@ -149,6 +149,55 @@ def extract_content(html, base_url):
     text = re.sub(r"\s+", " ", text).strip()
 
     return title, text, links
+
+
+# Individual publication detail pages look like /en/publications/<slug>/ --
+# distinct from listing pages like /en/publications/ or
+# /en/organisations/<org>/publications/(?page=..) which have nothing after
+# the "publications" segment.
+PUBLICATION_PATH_RE = re.compile(r"^/en/publications/[^/?]+/?$")
+
+
+def is_publication_page(url):
+    return bool(PUBLICATION_PATH_RE.match(urlparse(url).path))
+
+
+def extract_publication_meta(html):
+    """Pulls title, authors (name + PurePortal profile link), and publication
+    year from a publication detail page. Run only on pages that pass
+    is_publication_page() -- the markup below (h1, ul.relations.persons,
+    span.date) is specific to that page type."""
+    soup = BeautifulSoup(html, "html.parser")
+
+    h1 = soup.find("h1")
+    pub_title = h1.get_text(strip=True) if h1 else ""
+
+    authors = []
+    persons_ul = soup.select_one("ul.relations.persons")
+    if persons_ul:
+        for li in persons_ul.find_all("li"):
+            a = li.find("a", class_="person")
+            if a:
+                authors.append({
+                    "name": a.get_text(strip=True),
+                    "profile_url": urljoin("https://" + ALLOWED_DOMAIN, a["href"]),
+                })
+            else:
+                # co-authors with no PurePortal profile are listed as plain text
+                name = li.get_text(strip=True).lstrip(",").strip()
+                if name:
+                    authors.append({"name": name, "profile_url": None})
+
+    year = None
+    for span in soup.select("span.date"):
+        if "embargo-date" in (span.parent.get("class") or []):
+            continue
+        match = re.search(r"(19|20)\d{2}", span.get_text(strip=True))
+        if match:
+            year = int(match.group(0))
+        break
+
+    return pub_title, authors, year
 
 
 def setup_driver():
@@ -203,9 +252,19 @@ def crawl(seed_url=SEED_URL, max_pages=MAX_PAGES):
 
             title, text, links = extract_content(html, url)
 
+            record = {"url": url, "title": title, "text": text, "crawled_at": datetime.now(timezone.utc)}
+            if is_publication_page(url):
+                pub_title, authors, year = extract_publication_meta(html)
+                record.update({
+                    "title": pub_title or title,
+                    "authors": authors,
+                    "author_profile_urls": [a["profile_url"] for a in authors if a["profile_url"]],
+                    "publication_year": year,
+                })
+
             raw_pages.update_one(
                 {"url": url},
-                {"$set": {"url": url, "title": title, "text": text, "crawled_at": datetime.now(timezone.utc)}},
+                {"$set": record},
                 upsert=True,
             )
 
@@ -320,9 +379,9 @@ def search(query, top_k=10):
 
 
 if __name__ == "__main__":
-    crawl()
-    build_index()
+    # crawl()
+    # build_index()
 
-    print("\nSample query: 'healthcare research'")
-    for score, url, title in search("healthcare research"):
+    print("\nSample query: 'Mental Well-Being'")
+    for score, url, title in search("Mental Well-Being"):
         print(f"{score:.4f}  {title}  ({url})")
