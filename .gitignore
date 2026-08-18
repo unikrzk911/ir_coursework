@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+task1_search_engine/search_engine.db
+task1_search_engine/crawl.log
+.DS_Store
