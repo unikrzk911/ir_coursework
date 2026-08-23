@@ -1,0 +1,132 @@
+Connected: vertical_search_engine | collections: ['crawl_log', 'term_index', 'raw_pages', 'doc_vectors']
+Starting Chrome...
+[1] Crawled: https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/publications/
+[2] Crawled: https://pureportal.coventry.ac.uk/en/organisations/
+[3] Crawled: https://pureportal.coventry.ac.uk/en/publications/discovery-of-novel-magnetocardiography-parameters-predicting-futu/
+[4] Crawled: https://pureportal.coventry.ac.uk/en/publications/impaired-peripheral-oxygen-delivery-during-submaximal-exercise-in/
+[5] Crawled: https://pureportal.coventry.ac.uk/en/publications/moving-minds-the-associations-between-movement-and-cognitive-deve/
+[6] Crawled: https://pureportal.coventry.ac.uk/en/persons/hesam-ghiasvand/
+[7] Crawled: https://pureportal.coventry.ac.uk/en/persons/anna-higo/
+[8] Crawled: https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/publications/?type=%2Fdk%2Fatira%2Fpure%2Fresearchoutput%2Fresearchoutputtypes%2Fnontextual%2Fweb
+[9] Crawled: https://pureportal.coventry.ac.uk/en/publications/behavioural-determinants-of-dietary-selfmanagement-in-chronic-kid/
+[10] Crawled: https://pureportal.coventry.ac.uk/en/organisations/research-division/
+[11] Crawled: https://pureportal.coventry.ac.uk/en/publications/comparative-performance-of-anthropometric-indices-in-predicting-c/
+[12] Crawled: https://pureportal.coventry.ac.uk/en/publications/key-principles-for-rehabilitation-of-critically-ill-patients-with/
+[13] Crawled: https://pureportal.coventry.ac.uk/en/publications/its-time-to-rethink-real-world-evidence-a-call-for-terminological/
+[14] Crawled: https://pureportal.coventry.ac.uk/en/persons/maxine-whelan/
+[15] Crawled: https://pureportal.coventry.ac.uk/en/persons/nduka-okwose/
+[16] Crawled: https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/persons/
+[17] Crawled: https://pureportal.coventry.ac.uk/en/publications/health-outcomes-in-migrant-survivors-of-sexual-violence-and-abuse/
+[18] Crawled: https://pureportal.coventry.ac.uk/en/projects/
+[19] Crawled: https://pureportal.coventry.ac.uk/en/persons/djordje-jakovljevic/
+[20] Crawled: https://pureportal.coventry.ac.uk/en/publications/changes-in-binge-eating-symptoms-following-an-online-community-ba/
+[21] Crawled: https://pureportal.coventry.ac.uk/en/activities/
+[22] Crawled: https://pureportal.coventry.ac.uk/en/persons/sarah-west-2/
+[23] Crawled: https://pureportal.coventry.ac.uk/en/publications/learning-together-a-review-of-the-quality-of-care-provided-to-adu/
+[24] Crawled: https://pureportal.coventry.ac.uk/en/persons/rosie-kneafsey/
+[25] Crawled: https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/publications/?type=%2Fdk%2Fatira%2Fpure%2Fresearchoutput%2Fresearchoutputtypes%2Fcontributiontojournal%2Fconferencearticle
+[26] Crawled: https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/publications/?type=%2Fdk%2Fatira%2Fpure%2Fresearchoutput%2Fresearchoutputtypes%2Fcontributiontojournal%2Fcomment
+[27] Crawled: https://pureportal.coventry.ac.uk/en/publications/interviews-with-survivors/
+[28] Crawled: https://pureportal.coventry.ac.uk/en/persons/titilope-ajepe-2/
+[29] Crawled: https://pureportal.coventry.ac.uk/en/publications/evaluation-of-the-professional-nurse-advocates-role-in-quality-im/
+[30] Crawled: https://pureportal.coventry.ac.uk/en/publications/from-conflicting-outcomes-to-mutual-losses-how-punitive-responses/
+[31] Crawled: https://pureportal.coventry.ac.uk/en/persons/damilola-akolawole-ibirogba/
+[32] Crawled: https://pureportal.coventry.ac.uk/en/persons/ellen-bennett/
+[33] Crawled: https://pureportal.coventry.ac.uk/en/persons/grace-carter/
+[34] Crawled: https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/publications/?ordering=title&descending=false
+[35] Crawled: https://pureportal.coventry.ac.uk/en/persons/nikki-holliday/
+[36] Crawled: https://pureportal.coventry.ac.uk/en/publications/effect-of-six-weeks-ubiquinol-supplementation-on-mitochondrial-re/
+[37] Crawled: https://pureportal.coventry.ac.uk/en/publications/longitudinal-assessment-of-chemotherapy-induced-peripheral-neurop/
+[38] Crawled: https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/network/
+[39] Crawled: https://pureportal.coventry.ac.uk/en/persons/brent-robbins/
+[40] Crawled: https://pureportal.coventry.ac.uk/en/publications/exploring-the-perspectives-and-experiences-of-men-living-with-pro/
+[41] Crawled: https://pureportal.coventry.ac.uk/en/publications/examining-the-effect-of-an-orientation-tour-and-aromatherapy-on-s/
+[42] Crawled: https://pureportal.coventry.ac.uk/en/publications/age-and-sex-specific-percentile-curves-for-the-test-of-gross-moto/
+[43] Crawled: https://pureportal.coventry.ac.uk/en/persons/sally-pezaro/
+[44] Crawled: https://pureportal.coventry.ac.uk/en/persons/ioannis-kyrou/
+[45] Crawled: https://pureportal.coventry.ac.uk/en/persons/celine-brookes-smith/
+[46] Crawled: https://pureportal.coventry.ac.uk/en/persons/agnieszka-lewko/
+[47] Crawled: https://pureportal.coventry.ac.uk/en/publications/perceptions-attitudes-and-experiences-of-glp-1-receptor-agonists-/
+[48] Crawled: https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/projects/
+[49] Crawled: https://pureportal.coventry.ac.uk/en/persons/deborah-lycett/
+[50] Crawled: https://pureportal.coventry.ac.uk/en/publications/learning-to-sip-tea-intelligently-a-phenomenographic-exploration-/
+[51] Crawled: https://pureportal.coventry.ac.uk/en/publications/grassroots-football-coaches-knowledge-and-perspectives-of-physica/
+[52] Crawled: https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/fingerprints/
+[53] Crawled: https://pureportal.coventry.ac.uk/en/publications/
+[54] Crawled: https://pureportal.coventry.ac.uk/en/studentTheses/
+[55] Crawled: https://pureportal.coventry.ac.uk/en/persons/liz-lees-deutsch/
+[56] Crawled: https://pureportal.coventry.ac.uk/en/persons/amy-fuller/
+[57] Crawled: https://pureportal.coventry.ac.uk/en/prizes/
+[58] Crawled: https://pureportal.coventry.ac.uk/en/persons/william-pattison/
+[59] Crawled: https://pureportal.coventry.ac.uk/en/publications/patient-and-clinician-acceptability-of-an-integrated-physiotherap/
+[60] Crawled: https://pureportal.coventry.ac.uk/en/persons/fatima-bano/
+[61] Crawled: https://pureportal.coventry.ac.uk/en/equipments/
+[62] Crawled: https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/publications/?page=1
+[63] Crawled: https://pureportal.coventry.ac.uk/en/organisations/coventry-university/
+[64] Crawled: https://pureportal.coventry.ac.uk/en/publications/canvas-to-change-a-pilot-study-exploring-experiences-of-a-creativ/
+[65] Crawled: https://pureportal.coventry.ac.uk/en/persons/aimee-walker-clarke/
+[66] Crawled: https://pureportal.coventry.ac.uk/en/publications/a-digital-yoga-based-pause-grow-reflect-intervention-for-postgrad/
+[67] Crawled: https://pureportal.coventry.ac.uk/en/
+[68] Crawled: https://pureportal.coventry.ac.uk/en/persons/dana-sammut/
+[69] Crawled: https://pureportal.coventry.ac.uk/en/publications/heefo-a-lightweight-cryptographic-trinity-for-robust-uav-communic/
+[70] Crawled: https://pureportal.coventry.ac.uk/en/persons/stuart-cocksedge/
+[71] Crawled: https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/publications/?type=%2Fdk%2Fatira%2Fpure%2Fresearchoutput%2Fresearchoutputtypes%2Fcontributiontoconference%2Fabstract
+[72] Crawled: https://pureportal.coventry.ac.uk/en/publications/defining-a-diaphragm-focused-and-patient-acceptable-inspiratory-m/
+[73] Crawled: https://pureportal.coventry.ac.uk/en/publications/left-atrium-incisure-curvature-an-indicator-for-predicting-atrial/
+[74] Crawled: https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/publications/?ordering=type&descending=false
+[75] Crawled: https://pureportal.coventry.ac.uk/en/publications/evaluating-schoolbased-obesity-prevention-interventions-in-6-to-1/
+[76] Crawled: https://pureportal.coventry.ac.uk/en/persons/
+[77] Crawled: https://pureportal.coventry.ac.uk/en/persons/michael-duncan/
+[78] Crawled: https://pureportal.coventry.ac.uk/en/publications/a-cross-sectional-study-of-postgraduate-students-mental-well-bein/
+[79] Crawled: https://pureportal.coventry.ac.uk/en/publications/evaluation-of-the-green-house-whole-family-support-model/
+[80] Crawled: https://pureportal.coventry.ac.uk/en/persons/syed-aziz-shah/
+[81] Crawled: https://pureportal.coventry.ac.uk/en/publications/inspiratory-muscle-training-imt-for-clinical-adult-populations-an/
+[82] Crawled: https://pureportal.coventry.ac.uk/en/publications/a-novel-digital-intervention-to-support-mental-and-sexual-wellbei/
+[83] Crawled: https://pureportal.coventry.ac.uk/en/publications/an-open-label-clinical-feasibility-study-of-the-efficacy-of-remde/
+[84] Crawled: https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/publications/?ordering=publicationYearThenTitle&descending=false
+[85] Crawled: https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/publications/?type=%2Fdk%2Fatira%2Fpure%2Fresearchoutput%2Fresearchoutputtypes%2Fcontributiontobookanthology%2Fchapter
+[86] Crawled: https://pureportal.coventry.ac.uk/en/persons/andrew-morris/
+[87] Crawled: https://pureportal.coventry.ac.uk/en/persons/andy-turner/
+[88] Crawled: https://pureportal.coventry.ac.uk/en/publications/physical-activity-and-exercise-for-the-management-of-polycystic-o/
+[89] Crawled: https://pureportal.coventry.ac.uk/en/publications/effects-of-a-peer-support-lifestyle-intervention-on-diabetes-inci/
+[90] Crawled: https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/prizes/
+[91] Crawled: https://pureportal.coventry.ac.uk/en/persons/luis-alfredo-sanchez-andalco/
+[92] Crawled: https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/activities/
+[93] Crawled: https://pureportal.coventry.ac.uk/en/publications/perceived-needs-of-parents-of-adolescents-with-a-history-of-suici/
+[94] Crawled: https://pureportal.coventry.ac.uk/en/publications/new-irish-midwifery-registration-standards-and-the-missed-opportu/
+[95] Crawled: https://pureportal.coventry.ac.uk/en/about/cookies/
+[96] Crawled: https://pureportal.coventry.ac.uk/en/publications/physical-activity-bouts-and-sleep-duration-are-key-predictors-of-/
+[97] Crawled: https://pureportal.coventry.ac.uk/en/persons/christine-duffy/
+[98] Crawled: https://pureportal.coventry.ac.uk/en/persons/jason-tallis/
+[99] Crawled: https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/publications/?type=%2Fdk%2Fatira%2Fpure%2Fresearchoutput%2Fresearchoutputtypes%2Fbookanthology%2Fcommissioned
+[100] Crawled: https://pureportal.coventry.ac.uk/en/publications/patient-and-public-involvement-and-engagement-in-long-covid-resea/
+Closed Chrome.
+Crawl finished. 100 pages stored, 0 skipped by robots.txt.
+Indexed 10 documents. Vocabulary size: 1744 terms.
+
+Sample query: 'healthcare research'
+0.2012  Patient and public involvement and engagement in Long COVID research: embedding inclusion in research  (https://pureportal.coventry.ac.uk/en/publications/patient-and-public-involvement-and-engagement-in-long-covid-resea/)
+0.1960  Jason Tallis
+      -  Coventry University  (https://pureportal.coventry.ac.uk/en/persons/jason-tallis/)
+0.1707  Centre for Healthcare and Community Transformation - Research output
+      -  Coventry University  (https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/publications/)
+0.1690  Centre for Healthcare and Community Transformation - Research output
+      -  Coventry University  (https://pureportal.coventry.ac.uk/en/organisations/centre-for-healthcare-and-community-transformation/publications/?type=%2Fdk%2Fatira%2Fpure%2Fresearchoutput%2Fresearchoutputtypes%2Fbookanthology%2Fcommissioned)
+0.1474  Christine Duffy
+      -  Coventry University  (https://pureportal.coventry.ac.uk/en/persons/christine-duffy/)
+0.1082  Physical Activity, Trust, and Research Participation Among Men From Minority Ethnic Backgrounds Living With Prostate Cancer: A Qualitative Study  (https://pureportal.coventry.ac.uk/en/publications/physical-activity-trust-and-research-participation-among-men-from/)
+Traceback (most recent call last):
+  File "D:\Softwarica\Projects\ir_coursework\crawler_basic.py", line 387, in <module>
+    print(f"{score:.4f}  {title}  ({url})")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python314\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2010' in position 25: character maps to <undefined>
+Exception ignored while calling deallocator <function Chrome.__del__ at 0x000001A9475A7320>:
+Traceback (most recent call last):
+  File "D:\Softwarica\Projects\ir_coursework\.venv\Lib\site-packages\undetected_chromedriver\__init__.py", line 843, in __del__
+    self.quit()
+  File "D:\Softwarica\Projects\ir_coursework\.venv\Lib\site-packages\undetected_chromedriver\__init__.py", line 798, in quit
+    time.sleep(0.1)
+OSError: [WinError 6] The handle is invalid
