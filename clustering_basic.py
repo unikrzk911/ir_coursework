@@ -1,7 +1,8 @@
 """
 Document clustering over corpus/{Economics,Entertainment,Politics}/*.txt:
-TF-IDF + K-Means, then assign a new, user-entered document to one of the
-fitted clusters.
+TF-IDF + K-Means, then assign a new document to one of the fitted
+clusters. fit_model()/classify() are reused by both the CLI below and
+app.py's Task 2 page.
 """
 from pathlib import Path
 
@@ -46,9 +47,10 @@ def top_terms_per_cluster(kmeans, vectorizer, top_n=TOP_TERMS):
     return {cid: [terms[i] for i in order[cid, :top_n]] for cid in range(kmeans.n_clusters)}
 
 
-def main():
+def fit_model():
+    """Loads the corpus and fits TF-IDF + K-Means. Returns everything
+    needed to inspect the clusters and classify new documents."""
     texts, true_labels = load_corpus()
-    print(f"Loaded {len(texts)} documents across {len(set(true_labels))} categories.")
 
     vectorizer = TfidfVectorizer(stop_words="english", ngram_range=(1, 2), min_df=2, max_df=0.9)
     X = vectorizer.fit_transform(texts)
@@ -56,13 +58,35 @@ def main():
     kmeans = KMeans(n_clusters=K, random_state=RANDOM_STATE, n_init=10)
     kmeans.fit(X)
 
-    cluster_names = cluster_category_names(true_labels, kmeans.labels_, K)
-    sizes = cluster_sizes(kmeans.labels_, K)
-    top_terms = top_terms_per_cluster(kmeans, vectorizer)
+    return {
+        "vectorizer": vectorizer,
+        "kmeans": kmeans,
+        "cluster_names": cluster_category_names(true_labels, kmeans.labels_, K),
+        "sizes": cluster_sizes(kmeans.labels_, K),
+        "top_terms": top_terms_per_cluster(kmeans, vectorizer),
+        "doc_count": len(texts),
+        "category_count": len(set(true_labels)),
+    }
+
+
+def classify(model, text):
+    """Assigns a new document to a cluster. Returns the assigned cluster id
+    and a dict of {cluster_id: distance}, ordered closest-first."""
+    vector = model["vectorizer"].transform([text])
+    cluster_id = int(model["kmeans"].predict(vector)[0])
+    distances = model["kmeans"].transform(vector)[0]
+    ranked = sorted(range(len(distances)), key=lambda cid: distances[cid])
+    return cluster_id, {cid: float(distances[cid]) for cid in ranked}
+
+
+def main():
+    model = fit_model()
+    print(f"Loaded {model['doc_count']} documents across {model['category_count']} categories.")
 
     print("\nClusters found:")
     for cid in range(K):
-        print(f"  Cluster {cid} ({cluster_names[cid]}, {sizes[cid]} docs) -- top terms: {', '.join(top_terms[cid])}")
+        terms = ", ".join(model["top_terms"][cid])
+        print(f"  Cluster {cid} ({model['cluster_names'][cid]}, {model['sizes'][cid]} docs) -- top terms: {terms}")
 
     print("\nEnter a document to assign it to a cluster (blank line to quit).")
     while True:
@@ -70,15 +94,12 @@ def main():
         if not text:
             break
 
-        vector = vectorizer.transform([text])
-        cluster_id = kmeans.predict(vector)[0]
-        distances = kmeans.transform(vector)[0]
-
-        print(f"Assigned to cluster {cluster_id} ({cluster_names[cluster_id]})")
+        cluster_id, distances = classify(model, text)
+        print(f"Assigned to cluster {cluster_id} ({model['cluster_names'][cluster_id]})")
         print("Distance to each cluster centroid (closer = stronger match):")
-        for cid in np.argsort(distances):
+        for cid, dist in distances.items():
             marker = "  <-- assigned" if cid == cluster_id else ""
-            print(f"  Cluster {cid} ({cluster_names[cid]}): {distances[cid]:.4f}{marker}")
+            print(f"  Cluster {cid} ({model['cluster_names'][cid]}): {dist:.4f}{marker}")
 
 
 if __name__ == "__main__":
