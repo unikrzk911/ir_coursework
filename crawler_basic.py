@@ -336,6 +336,8 @@ def build_index():
         doc_vectors.update_one(
             {"url": url},
             {"$set": {"url": url, "title": doc.get("title", ""), "vector": vector,
+                       "authors": doc.get("authors", []),
+                       "publication_year": doc.get("publication_year"),
                        "indexed_at": datetime.now(timezone.utc)}},
             upsert=True,
         )
@@ -372,16 +374,26 @@ def search(query, top_k=10):
     for doc in doc_vectors.find({}):
         score = cosine_similarity(q_vector, doc["vector"])
         if score > 0:
-            results.append((score, doc["url"], doc.get("title", "")))
+            results.append((
+                score,
+                doc["url"],
+                doc.get("title", ""),
+                doc.get("authors", []),
+                doc.get("publication_year"),
+            ))
 
     results.sort(key=lambda x: x[0], reverse=True)
     return results[:top_k]
 
 
 if __name__ == "__main__":
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
+
     # crawl()
     # build_index()
 
     print("\nSample query: 'Mental Well-Being'")
-    for score, url, title in search("Mental Well-Being"):
-        print(f"{score:.4f}  {title}  ({url})")
+    for score, url, title, authors, year in search("Mental Well-Being"):
+        author_names = ", ".join(a["name"] for a in authors) if authors else ""
+        print(f"{score:.4f}  {title}  ({year})  [{author_names}]  {url}")

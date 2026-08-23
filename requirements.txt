@@ -4,6 +4,9 @@ requests>=2.31
 nltk>=3.8
 pymongo>=4.6
 
+# app.py (Streamlit GUI) dependency
+streamlit>=1.30
+
 # Needed because PurePortal serves a Cloudflare "managed challenge" page to
 # plain requests/headless Selenium (robots.txt itself permits crawling).
 # undetected-chromedriver patches the automation fingerprints Cloudflare
