@@ -1,16 +1,26 @@
 # ST7071CEM Information Retrieval Coursework
 
-A vertical search engine over publications by members of Coventry
-University's *Centre for Healthcare and Community Transformation* on
-PurePortal — crawl, TF-IDF index, and cosine-similarity search, backed
-by MongoDB.
+Two tasks, one Streamlit GUI:
+
+- **Task 1 — Search Engine**: a vertical search engine over publications by
+  members of Coventry University's *Centre for Healthcare and Community
+  Transformation* on PurePortal — crawl, TF-IDF index, and cosine-similarity
+  search, backed by MongoDB.
+- **Task 2 — Document Clustering**: TF-IDF + K-Means clustering of a
+  generated Economics / Entertainment / Politics corpus, with a held-out
+  generalisation evaluation.
 
 ```
 ir_coursework/
 ├── requirements.txt
-├── crawler_basic.py       # crawl -> MongoDB -> TF-IDF index -> search, all in one script
-├── notebooks_original/    # the original notebook snippets this builds on
-└── report/                # the written 2000-word report
+├── app.py                 # Streamlit GUI for both tasks
+├── crawler_basic.py       # Task 1: crawl -> MongoDB -> TF-IDF index -> search
+├── generate_documents.py  # Task 2: builds corpus/ from category templates
+├── clustering_basic.py    # Task 2: TF-IDF + K-Means fit_model()/classify()
+├── evaluate_holdout.py    # Task 2: held-out generalisation eval + confusion matrix
+├── corpus/                # Task 2: generated Economics/Entertainment/Politics .txt files
+├── notebooks_original/    # the original notebook snippets Task 1 builds on
+└── report/                # the written coursework report
 ```
 
 `crawler_basic.py` is a flattened, single-file version of
@@ -25,10 +35,21 @@ pip install -r requirements.txt
 python -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab'); nltk.download('stopwords')"
 ```
 
-Requires a local MongoDB instance running on `mongodb://localhost:27017/`
-(db `vertical_search_engine`), and Chrome installed locally.
+Task 1 requires a local MongoDB instance running on
+`mongodb://localhost:27017/` (db `vertical_search_engine`), and Chrome
+installed locally. Task 2 has no external dependencies beyond the pip
+packages.
 
 ## Run it
+
+```bash
+streamlit run app.py
+```
+
+Opens a GUI to switch between Task 1 (crawl/search) and Task 2 (view
+clusters, classify a new document).
+
+### Task 1 — from the command line
 
 ```bash
 python crawler_basic.py
@@ -46,6 +67,14 @@ functions as the notebook, e.g.:
 from crawler_basic import search
 for score, url, title in search("healthcare research"):
     print(f"{score:.4f}  {title}  ({url})")
+```
+
+### Task 2 — from the command line
+
+```bash
+python generate_documents.py   # only needed if corpus/ doesn't exist yet
+python clustering_basic.py     # fits the model, prints clusters, lets you classify text interactively
+python evaluate_holdout.py     # runs the held-out generalisation test, saves confusion_matrix.png
 ```
 
 ## A note on Cloudflare
