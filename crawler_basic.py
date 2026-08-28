@@ -14,6 +14,7 @@ import sys
 import time
 import math
 import types
+import schedule
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
@@ -290,6 +291,22 @@ def crawl(seed_url=SEED_URL, max_pages=MAX_PAGES):
     return crawled_count
 
 
+def scheduled_job(seed_url=SEED_URL, max_pages=MAX_PAGES):
+    print(f"Running scheduled weekly crawl at {datetime.now()}")
+    crawl(seed_url, max_pages)
+    build_index()
+
+
+def run_weekly(seed_url=SEED_URL, max_pages=MAX_PAGES):
+    """Blocks forever, re-crawling and re-indexing once a week. Run this in
+    its own long-lived process (not inside the Streamlit app)."""
+    schedule.every(7).days.do(scheduled_job, seed_url=seed_url, max_pages=max_pages)
+    print("Weekly crawl scheduled. Waiting for the next run...")
+    while True:
+        schedule.run_pending()
+        time.sleep(60)
+
+
 # --- 5. Text Preprocessing ---
 def preprocess(text):
     text = text.lower()
@@ -390,8 +407,8 @@ if __name__ == "__main__":
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
 
-    # crawl()
-    # build_index()
+    crawl()
+    build_index()
 
     print("\nSample query: 'Mental Well-Being'")
     for score, url, title, authors, year in search("Mental Well-Being"):
